@@ -27,10 +27,11 @@ export async function signUp(params: SignUpParams) {
             success: true,
             message: "Account created successfully. Please sign in.",
         };
-    } catch (e: any) {
+    } catch (e: unknown) { // Use `unknown` for better type safety
         console.error("Error signing up user:", e);
 
-        if (e.code === 'auth/email-already-exists') {
+        // Narrow down the type of `e` to check for specific properties
+        if (e instanceof Error && (e as { code?: string })?.code === 'auth/email-already-exists') {
             return {
                 success: false,
                 message: "Email already exists",

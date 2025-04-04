@@ -8,7 +8,7 @@ import {
   } from "@/components/ui/form"
 
 import { Input } from "@/components/ui/input"
-import { Controller, Field, FieldValues, Path } from 'react-hook-form'
+import { Controller, FieldValues, Path } from 'react-hook-form'
 
 interface FormFiledProps<T extends FieldValues> {
     control: Control<T>
